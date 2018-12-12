@@ -119,15 +119,15 @@ for t in range(400):
 		interpolateMACGrid( target=target_vel, source=blurvel )
 		target_vel.multConst( vec3(targetFac) )
 
-	# save
-	if 0 and t%2==0: 
+	# save uni files here, 1 means saveuni
+	if 1 and t%2==0: 
 		frameNr = t / 2
-		framedir = "frame_%04d" % frameNr
-		os.mkdir( framedir )
 
-		target_vel.save("%s/vel_low_%04d_%04d.uni" % (framedir,simId,frameNr) )
-		target_density.save("%s/density_low_%04d_%04d.uni" % (framedir,simId,frameNr) )
-		density.save("%s/density_high_%04d_%04d.uni" % (framedir,simId,frameNr) )
+
+		target_vel.save("../2ddata_sim/sim_%s/velocity_low_%04d.uni" % (simId,frameNr) )
+		target_density.save("../2ddata_sim/sim_%s/density_low_%04d.uni" % (simId,frameNr) )
+		density.save("../2ddata_sim/sim_%s/density_high_%04d.uni" % (simId,frameNr) )
+	
 	
 		#gui.screenshot( 'plume_%04d.png' % frameNr );
 
